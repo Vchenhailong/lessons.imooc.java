@@ -1,0 +1,24 @@
+/**
+ * Title: Lesson_memberStaticClass.java<br/>
+ * Description: <br/>
+ *
+ */
+package lessons.imooc.java;
+
+/**
+ * 静态变量关键字：static
+ * 静态变量——可使类所有的对象共享同一个成员。且习惯上，使用类名调用的方式
+ */
+public class Lesson_memberStaticClass {
+    
+    // 定义静态变量，保存班级名称
+    static String className = "JAVA开发一班";
+
+    public static void main(String[] args) {
+
+        // 访问静态变量，输出班级名称
+        System.out.println(Lesson_memberStaticClass.className);
+
+    }
+
+}
