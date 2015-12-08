@@ -1,0 +1,94 @@
+/**
+ * Title: Lesson_InnerClass.java<br/>
+ * Description: <br/>
+ *
+ */
+package lessons.imooc.java;
+
+/**
+ * 内部类方法的创建与调用
+ * 
+ * 成员内部类Inner 
+ *   --定义了成员内部类后，必须使用外部类对象来创建内部类对象，而不能直接去 new 一个内部类对象，即：内部类 对象名 =
+ *     外部类对象.new 内部类() --内部类方法可以任意访问外部类的属性
+ * 
+ * 静态内部类SInner
+ *   --静态内部类不能直接访问外部类的非静态成员，但可以通过 new 外部类().成员 的方式访问 --访问外部类的静态变量时，须通过
+ *     类名.静态成员 的方式访问
+ * 
+ * 方法内部类
+ *   --定义在外部类的方法中，且只在方法内部可见（即只在该方法内可以用） --方法内部类不能使用访问控制符和static访问修饰符
+ * 
+ * 匿名内部类
+ * 
+ */
+
+// 外部类
+public class Lesson_InnerClass {
+
+    // 外部类中的静态变量para
+    private static int para = 90;
+    private static String statement = "I love";
+
+    // 成员内部类Inner，类Inner在类Lesson_InnerClass的内部
+    public class Inner {
+
+        // 内部类的方法show
+        public void show() {
+            System.out.println("1-内部类方法成功访问了！welcome to imooc!");
+        }
+    }
+
+    // 创建静态内部类
+    public static class SInner {
+        // 内部类中的变量 para
+        int para = 100;
+
+        // 内部类方法call
+        public void call() {
+            System.out.println("2-静态内部类方法访问|外部|类的para:" + Lesson_InnerClass.para);
+            System.out.println("3-静态内部类方法访问|内部|类的para:" + para);
+        }
+    }
+
+    // 创建外部类的methodInner方法
+    public void methodInner() {
+        // 定义方法内部类
+        class MInner {
+
+//            String words = "I Love";
+
+            public String getWords() {
+
+//                return words + " " + "Technology";
+                System.out.println("4-将局部变量的使用注释掉，改用内部类访问成员变量的方式");
+                return Lesson_InnerClass.statement + "YOU";
+            }
+        }
+        // 创建方法内部类的对象
+        MInner mi = new MInner();
+        // 调用内部类的方法
+        String newWords = mi.getWords();
+        System.out.println(newWords);
+    }
+
+    public static void main(String[] args) {
+        // 创建外部类对象
+        Lesson_InnerClass li = new Lesson_InnerClass();
+        // 创建内部类对象
+        Inner i = li.new Inner();
+        // 调用内部类对象的方法
+        i.show();
+
+        // 创建静态内部类对象
+        SInner si = new SInner();
+        // 调用静态内部类方法
+        si.call();
+
+        // 创建外部类对象
+        Lesson_InnerClass oo = new Lesson_InnerClass();
+        // 调用外部类方法
+        oo.methodInner();
+
+    }
+}
