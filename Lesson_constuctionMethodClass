@@ -1,0 +1,35 @@
+/**
+ * Title: Lesson_constuctionMethodClass.java<br/>
+ * Description: <br/>
+ *
+ */
+package lessons.imooc.java;
+
+/**
+ * 构造方法：与类名相同
+ * 目的是：方便参数的传递
+ * 作用是：在实例创建时，直接初始化定义好的数据
+ *
+ */
+public class Lesson_constuctionMethodClass {
+    
+    int para;
+    
+    public Lesson_constuctionMethodClass(){
+        
+     // 这个是无参构造方法
+        System.out.println("调用了无参构造方法");
+    }
+
+    public Lesson_constuctionMethodClass(int para){
+        
+        System.out.println("调用了有参构造方法，传递整型类型参数，其值为：" + para);
+    }
+    public static void main(String[] args) {
+        
+        Lesson_constuctionMethodClass consN = new Lesson_constuctionMethodClass();
+        Lesson_constuctionMethodClass consY = new Lesson_constuctionMethodClass(1);
+        
+    }
+
+}
